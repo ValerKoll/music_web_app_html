@@ -89,6 +89,17 @@ def post_add_artist():
 # ======== end rooutes ========
 
 # ======== Challenge ========
+@app.route('/albums/single_album/', methods = ['GET'])
+def get_all_albums():
+    sub_connection = get_flask_database_connection(app)
+    albums_repo = AlbumRepository(sub_connection)
+    artist_repo = ArtistRepository(sub_connection)
+    album = albums_repo.all()
+    # artist = artist_repo.find(album.artist_id)
+    print(id)
+    return render_template('albums/single_album.html', album=album, artist=artist)
+
+
 @app.route('/albums/single_album/<int:id>', methods = ['GET'])
 def get_single_album(id):
     sub_connection = get_flask_database_connection(app)
