@@ -2,9 +2,6 @@
 from lib.album import Album
 #from database_connection import DatabaseConnection
 
-
-
-
 class AlbumRepository():
     def __init__(self, connection):
         self._connection = connection
@@ -13,7 +10,7 @@ class AlbumRepository():
         rows = self._connection.execute("SELECT * FROM albums")
         ab = []
         for row in rows:
-            item = Album(row["title"], row["release_year"], row["artist_id"])
+            item = Album(row["id"], row["title"], row["release_year"], row["artist_id"])
             ab.append(item)
         return ab
     
@@ -21,7 +18,7 @@ class AlbumRepository():
         rows = self._connection.execute(
             'SELECT * FROM albums WHERE id = %s', [album_id])
         row = rows[0]
-        return Album(row["title"], row["release_year"], row["artist_id"])
+        return Album(row["id"], row["title"], row["release_year"], row["artist_id"])
 
 #db_connection.seed("seeds/music_library_addtable.sql")
 #a = AlbumRepository(db_connection())

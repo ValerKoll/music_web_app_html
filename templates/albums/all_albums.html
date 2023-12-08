@@ -1,4 +1,4 @@
-<! -- This is a HTML document -->
+<!-- This is a HTML document -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,12 +14,12 @@
     </style>
   </head>
   <body>
-      <a href = "/single_album/{{album.id}}"> 
-        <h1>{{album.title}}</h1> 
-      </a> 
+    {% for album, artist in combined_data %}
+    <h1>{{album.title}}</h1>
       <p>
-        Release year: {{album.release_year}}
+        Release year: {{album.release_year}} <br>
         Artist: {{artist.name}}
       </p>
+    {% endfor %}
   </body>
 </html>
