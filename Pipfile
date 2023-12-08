@@ -10,6 +10,8 @@ flask = "*"
 pytest-playwright = "*"
 pytest-xprocess = "*"
 py = "*"
+exit = "*"
+pyppeteer = "*"
 
 [dev-packages]
 autopep8 = "*"

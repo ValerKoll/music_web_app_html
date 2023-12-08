@@ -15,7 +15,7 @@
   </head>
   <body>
     {% for album, artist in combined_data %}
-    <h1>{{album.title}}</h1>
+    <h1><a href="/albums/single_album/{{album.id}}">{{album.title}}</a></h1>
       <p>
         Release year: {{album.release_year}} <br>
         Artist: {{artist.name}}

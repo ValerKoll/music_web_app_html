@@ -34,6 +34,8 @@ def test_get_albums(page, test_web_address, db_connection): # Note new parameter
         "Release year: 1974\nArtist: ABBA",
         "Release year: 1980\nArtist: ABBA"
         ])
+    page.click('a')
+    expect(h1_tag).to_have_text("Doolittle")
     
 
 def test_get_single_album(page, test_web_address, db_connection):
@@ -50,10 +52,10 @@ def test_get_single_album(page, test_web_address, db_connection):
     expect(h1_tag).to_have_text("Surfer Rosa")
     expect(p_tag).to_have_text("Release year: 1988\nArtist: Pixies")
 
-def test_visit_album_show_page(page, test_web_address, db_connection): # Note new parameters
+
+def test_visit_album_show_page(page, test_web_address, db_connection):
     db_connection.seed("seeds/music_library.sql")
-    page.goto(f"http://{test_web_address}/albums/single_albums/1")
-    page.click("text='Doolittle")
+    page.goto(f"http://{test_web_address}/albums/single_album/1")
     h1_tag = page.locator("h1")
     expect(h1_tag).to_have_text("Doolittle")
     
